@@ -4,17 +4,29 @@ A Laravel news portal with article listings, live title search, article detail p
 
 ## Requirements
 
-- PHP 8.5 with the SQLite extension
+- PHP 8.5 with the PDO MySQL extension
 - Composer 2
+- MySQL
 
 ## Setup
 
 1. Install dependencies: `composer install`
 2. Copy `.env.example` to `.env` and generate an application key: `php artisan key:generate`
-3. Create an empty `database/database.sqlite` file, then run `php artisan migrate --seed`.
-4. Start the application: `php artisan serve`
+3. Create a MySQL database and configure its connection in `.env`:
 
-The default environment uses SQLite. Update `.env` if you prefer another database.
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
+
+   Use the credentials for your local MySQL installation. The supplied `.env.example` defaults to SQLite, so these values must be changed for MySQL.
+
+4. Run `php artisan migrate --seed`.
+5. Start the application: `php artisan serve`
 
 ## Routes
 
@@ -22,4 +34,4 @@ The default environment uses SQLite. Update `.env` if you prefer another databas
 - `/articles/{permalink}` — article details
 - `/api/articles` and `/api/v1/articles` — paginated article JSON
 
-Run the test suite with `php artisan test`. The tests use an in-memory SQLite database.
+Run the test suite with `php artisan test`. The tests use an in-memory SQLite database and require the PHP SQLite extension, even when the application uses MySQL.
