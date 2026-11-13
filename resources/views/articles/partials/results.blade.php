@@ -1,6 +1,6 @@
-<div class="row g-4 g-lg-5">
+<div class="row g-4 editorial-grid">
     @forelse ($articles as $article)
-        <div class="col-md-6"><article class="news-card h-100 d-flex flex-column">
+        <div class="{{ $loop->first ? 'col-12 lead-story' : 'col-md-6' }}"><article class="news-card h-100 d-flex flex-column">
             <a href="{{ route('articles.show', $article->permalink) }}" tabindex="-1" aria-hidden="true">
                 @php
                     $categoryImage = match (strtolower($article->category->name)) {

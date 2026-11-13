@@ -13,10 +13,10 @@
         <nav class="main-nav" aria-label="Main navigation"><div class="container"><a href="{{ route('articles.index') }}" class="nav-label">Home</a><a href="#latest" class="nav-label">Latest news</a><a href="#search-form" class="nav-label">Search</a></div></nav>
     </header>
     <main class="container pb-5">
-        <div class="news-ticker"><span>Latest</span><p>News and perspectives to help you make sense of the world around you.</p></div>
+        <div class="news-ticker"><span>In focus</span><p>Independent news and perspectives for a clearer view of the world.</p></div>
         <div class="row g-5 py-4 py-lg-5">
             <section id="latest" class="col-lg-8">
-                <div class="section-heading mb-4"><h1 class="section-title mb-0">Latest News</h1><span class="story-meta">The daily edition</span></div>
+                <div class="section-heading mb-4"><h1 class="section-title mb-0">The latest stories</h1><span class="story-meta">The daily edition</span></div>
                 <div id="results" aria-live="polite">@include('articles.partials.results')</div>
                 <p id="search-error" class="text-danger mt-3" role="alert" hidden>Unable to load articles. Please try again.</p>
             </section>
